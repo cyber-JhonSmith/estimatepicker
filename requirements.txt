@@ -1,0 +1,5 @@
+streamlit
+pillow
+re
+pdfplumber
+azure-cognitiveservices-vision-computervision
