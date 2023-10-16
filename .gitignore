@@ -1,2 +1,10 @@
 .env
 secrets.toml
+.png
+.pdf
+.xlsx
+.ps1
+.ipynb
+test.py
+.jupiter
+.ipynb_checkpoints

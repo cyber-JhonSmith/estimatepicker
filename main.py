@@ -8,7 +8,11 @@ st.set_page_config(
 
 with st.container():
     st.title("見積情報ピッカー")
-
+    """
+    ## !!WARNING!!
+    ### このサイトはアップロードファイルに対する安全性を何一つ保証していません。
+    ### 試しに使用する際は、どうでもいいファイルのアップロードに留めてください。
+    """
     uploaded_file = st.file_uploader("ファイルを選択", type=['jpg', 'png', 'pdf'])
     col1, col2 = st.columns(2)
 
@@ -17,8 +21,6 @@ if uploaded_file is not None:
 
     API_KEY = st.secrets["API_KEY"]
     ENDPOINT = st.secrets["ENDPOINT"]
-
-    st.write(ENDPOINT)
 
     cvision = mylib.ComputerVision(API_KEY, ENDPOINT, image_path)
     results = cvision.visionOCR()
