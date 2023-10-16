@@ -60,15 +60,14 @@ def sculp_image(image, results):
     return(image)
 
 class ComputerVision:
-    def __init__(self, image_path):
+    def __init__(self, subscription_key, endpoint, image_path):
         self.loca_image_path = image_path
 
-        dotenv_path = join(os.getcwd(), '.env')
-        #dotenv_path = './.env'
-        load_dotenv(dotenv_path)
-
-        subscription_key = os.environ.get("API_KEY")
-        endpoint = os.environ.get("ENDPOINT")
+        ## 参考:https://qiita.com/hedgehoCrow/items/2fd56ebea463e7fc0f5b
+        # dotenv_path = join(os.getcwd(), '.env')
+        # load_dotenv(dotenv_path)
+        # API_KEY = os.environ.get("API_KEY")
+        # ENDPOINT = os.environ.get("ENDPOINT")
 
         self.computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
 

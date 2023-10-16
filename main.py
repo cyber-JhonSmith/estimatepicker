@@ -14,7 +14,11 @@ with st.container():
 
 if uploaded_file is not None:
     image, image_path = mylib.adjustImage(uploaded_file)
-    cvision = mylib.ComputerVision(image_path)
+
+    API_KEY = st.secrets["API_KEY"]
+    ENDPOINT = st.secrets["ENDPOINT"]
+
+    cvision = mylib.ComputerVision(API_KEY, ENDPOINT, image_path)
     results = cvision.visionOCR()
     mylib.sculp_image(image, results)
   
