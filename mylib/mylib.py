@@ -38,11 +38,11 @@ def sculp_image(image, results):
         y = result[1][1]
         w = result[1][2]
         h = result[1][5]
-        text = result[0]
+        #text = result[0]
         cap = f'[{i}]'
 
         font = ImageFont.truetype(font=font_path, size=15)
-        tx, ty = draw.textsize(cap, font)
+        #tx, ty = draw.textsize(cap, font)
 
         try:
             draw.rectangle([(x, y), (w, h)], 
