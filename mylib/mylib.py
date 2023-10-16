@@ -63,8 +63,8 @@ class ComputerVision:
     def __init__(self, image_path):
         self.loca_image_path = image_path
 
-        # dotenv_path = join(dirname(__file__), '.env')
-        dotenv_path = './.env'
+        dotenv_path = join(dirname(__file__), '.env')
+        #dotenv_path = './.env'
         load_dotenv(dotenv_path)
 
         subscription_key = os.environ.get("API_KEY")
