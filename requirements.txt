@@ -2,3 +2,4 @@ streamlit
 pillow
 pdfplumber
 azure-cognitiveservices-vision-computervision
+python-dotenv

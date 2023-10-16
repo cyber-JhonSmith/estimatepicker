@@ -1,17 +1,16 @@
-import json
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 import pdfplumber
+from dotenv import load_dotenv
+import os
+from os.path import join, dirname
+import time
 
 from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from azure.cognitiveservices.vision.computervision.models import OperationStatusCodes
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
-
-import os
-from PIL import Image
-import time
 
 def adjustImage(uploaded_file):
     file_type = uploaded_file.name.split('.')[-1]
@@ -64,9 +63,12 @@ class ComputerVision:
     def __init__(self, image_path):
         self.loca_image_path = image_path
 
-        keys = json.load(open('./keys.json', 'r'))
-        subscription_key = keys["key"]
-        endpoint = keys["endpoint"]
+        # dotenv_path = join(dirname(__file__), '.env')
+        dotenv_path = './.env'
+        load_dotenv(dotenv_path)
+
+        subscription_key = os.environ.get("API_KEY")
+        endpoint = os.environ.get("ENDPOINT")
 
         self.computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
 

@@ -62,4 +62,3 @@ if uploaded_file is not None:
             button = st.button("提出")
             if button:
                 st.write("見積もりを提出しました。")
-            
